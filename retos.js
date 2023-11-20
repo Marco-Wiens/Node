@@ -36,19 +36,12 @@ const readline = require("readline");
 
 let rl = readline.createInterface(process.stdin, process.stdout);
 
-let nombre; 
-let apellido;
-let edad;
 
-rl.question("Cómo te llamas? ", function(answer){
-    nombre = answer;
 
-    rl.question("Cuál es tu apellido? ", function(answer){
-        apellido = answer
-        
-        rl.question("Cuántos años tienes? ", function(answer){
-            edad = answer
-            
+rl.question("Cómo te llamas? ", function(nombre){
+    rl.question("Cuál es tu apellido? ", function(apellido){
+        rl.question("Cuántos años tienes? ", function(edad){
+
             let obj = {
                 name: nombre,
                 surname: apellido,
@@ -59,13 +52,13 @@ rl.question("Cómo te llamas? ", function(answer){
 
             fs.writeFile("objeto.json",jsonData, function(err) {
                 if (err) {
-                    console.error("Error al escribir en el archivo:", err);
+                    console.log(err);
                     rl.close();
                 } else {
                     
                     fs.readFile("objeto.json", 'utf-8', function(err, data) {
                         if (err) {
-                            console.error("Error al leer el archivo:", err);
+                            console.log(err);
                         } else {
                             console.log(data);
                         }

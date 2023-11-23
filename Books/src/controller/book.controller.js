@@ -3,15 +3,7 @@ const book = require("../models/book");
 
 // let libro = null;
 
-let libro = new book(
-  "Harry Potter",
-  "Tapa blanda",
-  "JK Rowling",
-  24,
-  "https://lafrikileria.com/blog/wp-content/uploads/2023/05/serie-no-universo-harry-potter-pode-ser-realidade-confira-reproducao-hbo-max.jpg",
-  2,
-  3
-)
+let libro = new book("Harry Potter","Tapa blanda","JK Rowling",24,"https://lafrikileria.com/blog/wp-content/uploads/2023/05/serie-no-universo-harry-potter-pode-ser-realidade-confira-reproducao-hbo-max.jpg",2,3);
 
 function getStart(request, response) {
     let respuesta = { error: false, codigo: 200, mensaje: "Punto de inicio" };

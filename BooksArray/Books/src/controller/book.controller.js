@@ -18,7 +18,7 @@ function getStart(request, response) {
 function getBook(request, response) {
   let respuesta;
   let id = request.params.id;
-  let libroExiste = libros.some((libro) => libro.id_book == id);
+  let libroExiste = libros.some((libro) => libro.id_book.toString().includes(id.toString()));
 
   if (id && libroExiste) {
 
@@ -32,7 +32,7 @@ function getBook(request, response) {
       respuesta = {
         error: true,
         codigo: 200,
-        message: 'El Libro no existe'
+        mensaje: 'El Libro no existe'
       }
   }
   response.send(respuesta);
@@ -101,7 +101,7 @@ function putBook(request, response){
     respuesta = {
       error: false,
       codigo: 200,
-      message: 'Libro Modificado',
+      mensaje: 'Libro Modificado',
       data: libros[i]
     };
   }else{
@@ -126,14 +126,14 @@ function deleteBook(request, response){
     respuesta = {
       error: false,
       codigo: 200,
-      message: 'Libro eliminado',
+      mensaje: 'Libro eliminado',
       data: libros,
     };
   }else{
     respuesta = {
       error: true,
       codigo: 200,
-      message: 'El Libro no existe'
+      mensaje: 'El Libro no existe'
     };
   }
   response.send(respuesta);
